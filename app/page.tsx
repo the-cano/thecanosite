@@ -1,91 +1,241 @@
+'use client'
+import clsx from 'clsx'
+import Link from 'next/link'
 import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from './page.module.css'
-
-const inter = Inter({ subsets: ['latin'] })
+import { CardHoverEffect, hoverClassName } from './card-hover'
+import { Time } from './time'
+import { AiOutlineInstagram, AiOutlineLinkedin, AiOutlineTwitter, HiOutlineExternalLink, HiOutlineMail, SiAmazonaws, SiDocker, SiGit, SiGithub, SiJavascript, SiMongodb, SiNextdotjs, SiNodedotjs, SiPostgresql, SiRabbitmq, SiReact, SiServerless, SiSpotify, SiTailwindcss, SiTypescript, SiVisualstudiocode, SiVuedotjs, SiYarn } from 'react-icons/all'
+import useSWR from 'swr'
+import axios from 'axios'
+import styles from "./page.module.css"
 
 export default function Home() {
+  const { data } = useSWR(
+    "/api/nowplaying",
+    (url) => axios.get(url).then((res) => res.data),
+    { refreshInterval: 100000 }
+  );
+
+  const spotifyArtist = (artists : any) => {
+    let artistString = ''
+    artists.forEach((artist : any, i : number) => {
+      artistString += ' ' + artist.name;
+      if (i < artists.length - 1) artistString += ', '
+    })
+    return artistString
+  }
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+   <main className="mx-auto grid max-w-3xl grid-cols-6 gap-6 px-6 pb-40 pt-32">
+    <div className='col-span-6 md:col-span-4 md:h-52'>
+      <div className='relative group'>
+        <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+        <div className="relative p-200 col-span-6 w-full flex items-center justify-between overflow-hidden rounded-2xl bg-black md:col-span-4 md:h-52 px-10">
+          < Image
+						src="/meSquare.jpg"
+						height={96}
+						width={96}
+						className="h-24 w-24 rounded-full border border-pink-600 object-cover"
+						alt="Photo of me"
+					  />
+          <div className="space-y-1">
+                <h1 className="text-center font-title text-xl font-bold tracking-tighter md:text-left">
+                  alejandro cano (lele)
+                </h1>
+
+                <p className="text-centermd:text-left">
+                  28 y/o full stack Swoftware Engineer
+                </p>
+
+                <p className="text-center text-pink-800 dark:text-pink-300/80 dark:text-glow-pink-500/30 md:text-left">
+                </p>
+            </div>
+        </div>
+      </div>
+    </div>
+    
+      <CardHoverEffect className="col-span-2 h-full">
+				<Link
+					href="https://twitter.com/lelee_94"
+					target="_blank"
+					rel="noopener noreferrer"
+					className={clsx(
+						'flex h-full items-center justify-center rounded-2xl bg-sky-500 text-7xl text-white',
+						hoverClassName,
+					)}
+				>
+					<span className="sr-only">Twitter</span>
+					<span className="transform-gpu transition">
+						<AiOutlineTwitter />
+					</span>
+				</Link>
+			</CardHoverEffect>
+     
+      <div className="col-span-3 flex items-center justify-center rounded-2xl bg-indigo-700 p-6 text-fuchsia-100 md:col-span-2">
+				<div className="grid w-full grid-cols-4 grid-rows-4 gap-4 [&>svg]:w-full [&>svg]:text-center">
+					<SiTypescript size={24} />
+					<SiDocker size={24} />
+					<SiNextdotjs size={24} />
+					<SiPostgresql size={24} />
+					<SiReact size={24} />
+					<SiTailwindcss size={24} />
+					<SiNodedotjs size={24} />
+					<SiJavascript size={24} />
+					<SiAmazonaws size={24} />
+					<SiYarn size={24} />
+					<SiGit size={24} />
+					<SiMongodb size={24} />
+					<SiVisualstudiocode size={24} />
+          <SiVuedotjs size={24} />
+          <SiServerless size={24} />
+          <SiRabbitmq size={24} />
+				</div>
+			</div>
+
+      <CardHoverEffect className="col-span-4 h-full md:col-span-4">
+				<Link
+					href="https://github.com/the-cano"
+					target="_blank"
+					rel="noopener noreferrer"
+					className={clsx(
+						'group relative flex h-full w-full flex-col justify-between overflow-hidden rounded-2xl text-white',
+						hoverClassName,
+					)}
+				>
+					<span aria-hidden className="pointer-events-none absolute inset-0 -z-20">
+						<Image
+							src="/githubBackground.jpg"
+							alt="The Matrix scrolling characters effect"
+							fill
+							style={{objectFit: 'cover'}}
+							className="brightness-[0.7]"
+						/>
+						<span className="absolute inset-0 bg-neutral-900/50" />
+					</span>
+
+					<span aria-hidden className="px-6 pt-6">
+						<span className="flex justify-between">
+							<SiGithub className="text-3xl" />
+							<HiOutlineExternalLink className="text-xl opacity-50 transition duration-500 group-hover:opacity-100" />
+						</span>
+					</span>
+
+					<span className="space-y-0.5 px-6 pb-6">
+						<span className="block font-title font-bold">github</span>
+
+						<span className="block text-sm">not so many stuff right now</span>
+					</span>
+				</Link>
+			</CardHoverEffect>
+      <Time/>
+      <div className="col-span-3 grid grid-cols-1 gap-6 md:col-span-1">
+        <CardHoverEffect className="row-span-1">
+            <Link
+              href="https://www.linkedin.com/in/alejandrocanocalvente/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={clsx(
+                'flex h-full items-center justify-center rounded-2xl bg-blue-800 text-4xl text-white',
+                hoverClassName,
+              )}
+            >
+              <span className="sr-only">LinkedIn</span>
+              <span className="transform-gpu transition">
+                <AiOutlineLinkedin />
+              </span>
+            </Link>
+          </CardHoverEffect>
+          
+          <CardHoverEffect className="row-span-1">
+            <Link
+              href="https://www.instagram.com/canoppics/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={clsx(
+                'flex h-full items-center justify-center rounded-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-4xl text-white',
+                hoverClassName,
+              )}
+            >
+              <span className="sr-only">Instagram</span>
+              <span className="transform-gpu transition">
+                <AiOutlineInstagram />
+              </span>
+            </Link>
+          </CardHoverEffect>
+		</div>
+    <CardHoverEffect className="col-span-3 h-full">
+      <Link
+					href={data ? data?.external_urls.spotify : ''}
+					target="_blank"
+					rel="noopener noreferrer"
+					className={clsx(
+						'group relative flex h-full w-full flex-col justify-between overflow-hidden rounded-2xl text-white',
+						hoverClassName,
+					)}
+				>
+					<span aria-hidden className="pointer-events-none absolute inset-0 -z-20">
+						<Image
+							src={ data ? data.album.images[0].url : '/spotifyLoader.jpg'}
+							alt="Current Playing Song"
+							fill
+							style={{objectFit: 'cover'}}
+							className="brightness-[0.7]"
+						/>
+						<span className="absolute inset-0 bg-neutral-900/50" />
+					</span>
+
+					<span aria-hidden className="px-6 pt-6">
+						<span className="flex justify-between">
+							<SiSpotify className="text-3xl" />
+							<HiOutlineExternalLink className="text-xl opacity-50 transition duration-500 group-hover:opacity-100" />
+						</span>
+					</span>
+
+					<span className="space-y-0.5 px-6 pb-6">
+            <span className="flex justify-between">
+              {data && <div className={styles.icon}>
+                <span />
+                <span />
+                <span />
+              </div>}
+              <span>
+                <span className="block font-title font-bold text-right ">{data ? data?.name : ''}</span>
+                <span className="block text-sm text-right ">{data ? spotifyArtist(data?.artists) : ''}</span>
+              </span>
+            </span>
+					</span>
+				</Link>
+			</CardHoverEffect>
+
+      <CardHoverEffect className="col-span-6 md:col-span-6 h-full">
+        <Link
+            href="mailto:alejandro.canocalvente@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
+            className={clsx(
+              'group relative flex h-full w-full flex-col justify-between overflow-hidden rounded-2xl text-white  bg-yellow-200 p-6 dark:bg-gray-800',
+              hoverClassName,
+            )}
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+            <span aria-hidden>
+              <span className="flex justify-between">
+                <h2 className="font-title text-xl font-bold">
+                    hello there<span className="inline dark:hidden">⚡️</span>
+                    <span className="hidden dark:inline">⚡️</span>
+                </h2>
+                <HiOutlineMail className="text-xl opacity-50 transition duration-500 group-hover:opacity-100" />
+              </span>
+            </span>
+            
+            <div className='block' >
+              Well, this is my site with a bit of me in it. I am a Software Engineer from Barcelona.
+            </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+            <div className='block' >
+              As list of hobbies I love to play the guitar, I am always listening to music, I enjoy playing videogames and I am 1 year crossfit trainee.
+            </div>
+        </Link>
+      </CardHoverEffect>
     </main>
   )
 }
