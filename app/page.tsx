@@ -13,7 +13,7 @@ export default function Home() {
   const { data } = useSWR(
     "/api/nowplaying",
     (url) => axios.get(url).then((res) => res.data),
-    { refreshInterval: 100000 }
+    { refreshInterval: 10000 }
   );
 
   const spotifyArtist = (artists : any) => {
