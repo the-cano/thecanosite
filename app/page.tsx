@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { CardHoverEffect, hoverClassName } from './card-hover'
 import { Time } from './time'
-import { AiOutlineInstagram, AiOutlineLinkedin, AiOutlineTwitter, HiOutlineExternalLink, HiOutlineMail, SiAmazonaws, SiDocker, SiGit, SiGithub, SiJavascript, SiMongodb, SiNextdotjs, SiNodedotjs, SiPostgresql, SiRabbitmq, SiReact, SiServerless, SiSpotify, SiTailwindcss, SiTypescript, SiVisualstudiocode, SiVuedotjs, SiYarn } from 'react-icons/all'
+import { AiOutlineInstagram, AiOutlineLinkedin, AiOutlineTwitter, HiOutlineExternalLink, HiOutlineMail, SiAmazonaws, SiDocker, SiGit, SiGithub, SiJavascript, SiMongodb, SiNextdotjs, SiNodedotjs, SiNpm, SiPostgresql, SiRabbitmq, SiReact, SiServerless, SiSpotify, SiTailwindcss, SiTypescript, SiVisualstudiocode, SiVuedotjs, SiYarn } from 'react-icons/all'
 import useSWR from 'swr'
 import axios from 'axios'
 import styles from "./page.module.css"
@@ -82,7 +82,7 @@ export default function Home() {
 					<SiNodedotjs size={24} />
 					<SiJavascript size={24} />
 					<SiAmazonaws size={24} />
-					<SiYarn size={24} />
+					<SiNpm size={24} />
 					<SiGit size={24} />
 					<SiMongodb size={24} />
 					<SiVisualstudiocode size={24} />
