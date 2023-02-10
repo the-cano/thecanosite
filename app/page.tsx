@@ -39,15 +39,12 @@ export default function Home() {
 						alt="Photo of me"
 					  />
           <div className="space-y-3">
-                <h1 className="text-center mt-2 font-title text-xl font-bold tracking-tighter md:text-left sm:text-lg">
+                <h1 className="text-center mt-2 font-title text-xl font-bold tracking-tighter md:text-left sm:text-lg text-white">
                   alejandro cano (lele)
                 </h1>
 
-                <p className="text-center md:text-left ">
+                <p className="text-center md:text-left text-white">
                   28 y/o full stack Swoftware Engineer
-                </p>
-
-                <p className="text-center text-pink-800 dark:text-pink-300/80 dark:text-glow-pink-500/30 md:text-left">
                 </p>
             </div>
         </div>
@@ -215,7 +212,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             className={clsx(
-              'group relative flex h-full w-full flex-col justify-between overflow-hidden rounded-2xl text-white  bg-yellow-200 p-6 dark:bg-gray-800',
+              'group relative flex h-full w-full flex-col justify-between overflow-hidden rounded-2xl text-white  bg-gray-800 p-6 dark:bg-gray-800',
               hoverClassName,
             )}
           >
