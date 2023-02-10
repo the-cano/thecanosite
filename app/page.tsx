@@ -35,15 +35,15 @@ export default function Home() {
 						src="/meSquare.jpg"
 						height={96}
 						width={96}
-						className="h-24 w-24 rounded-full border border-pink-600 object-cover"
+						className="h-24 w-24 space-y-3 rounded-full border border-pink-600 object-cover"
 						alt="Photo of me"
 					  />
-          <div className="space-y-1">
-                <h1 className="text-center font-title text-xl font-bold tracking-tighter md:text-left">
+          <div className="space-y-3">
+                <h1 className="text-center mt-2 font-title text-xl font-bold tracking-tighter md:text-left sm:text-lg">
                   alejandro cano (lele)
                 </h1>
 
-                <p className="text-centermd:text-left">
+                <p className="text-center md:text-left ">
                   28 y/o full stack Swoftware Engineer
                 </p>
 
@@ -54,7 +54,7 @@ export default function Home() {
       </div>
     </div>
     
-      <CardHoverEffect className="col-span-2 h-full">
+      <CardHoverEffect className="h-full col-span-3 md:col-span-2 sm:col-span-3">
 				<Link
 					href="https://twitter.com/lelee_94"
 					target="_blank"
@@ -127,7 +127,9 @@ export default function Home() {
 					</span>
 				</Link>
 			</CardHoverEffect>
+
       <Time/>
+      
       <div className="col-span-3 grid grid-cols-1 gap-6 md:col-span-1">
         <CardHoverEffect className="row-span-1">
             <Link
@@ -179,7 +181,7 @@ export default function Home() {
 							alt="Current Playing Song"
 							fill
 							style={{objectFit: 'cover'}}
-							className="brightness-[0.7]"
+							className="brightness-[0.9]"
 						/>
 						<span className="absolute inset-0 bg-neutral-900/50" />
 					</span>
