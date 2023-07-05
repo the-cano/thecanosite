@@ -30,7 +30,7 @@ export default function Home() {
     <div className='col-span-6 md:col-span-4 md:h-52'>
       <div className='relative group'>
         <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-        <div className="relative p-200 col-span-6 w-full flex items-center justify-between overflow-hidden rounded-2xl bg-black md:col-span-4 md:h-52 px-10">
+        <div className="relative p-200 col-span-6 w-full flex items-center justify-between overflow-hidden rounded-2xl bg-black md:col-span-4 md:h-52 p-10">
           < Image
 						src="/meSquare.jpg"
 						height={96}
@@ -44,7 +44,7 @@ export default function Home() {
                 </h1>
 
                 <p className="text-center md:text-left text-white">
-                  28 y/o full stack Swoftware Engineer
+                  29 y/o full stack swoftware engineer
                 </p>
             </div>
         </div>
@@ -231,7 +231,7 @@ export default function Home() {
             </div>
 
             <div className='block' >
-              As list of hobbies I love to play the guitar, I am always listening to music, I enjoy playing videogames and I am 1 year crossfit trainee.
+              As list of hobbies I love to play the guitar, I am always listening to music, I enjoy playing videogames and I am a 1 year crossfit trainee.
             </div>
         </Link>
       </CardHoverEffect>
