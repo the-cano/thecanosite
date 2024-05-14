@@ -44,7 +44,7 @@ export default function Home() {
                 </h1>
 
                 <p className="text-center md:text-left text-white">
-                  29 y/o full stack swoftware engineer
+                  30 y/o full stack swoftware engineer
                 </p>
             </div>
         </div>
@@ -231,7 +231,7 @@ export default function Home() {
             </div>
 
             <div className='block' >
-              As list of hobbies I love to play the guitar, I am always listening to music, I enjoy playing videogames and I am a 1 year crossfit trainee.
+              As list of hobbies I love to play the guitar, I am always listening to music, I enjoy playing videogames and I am a 2 year crossfit trainee. Also I started indoor boulder climbing. Lets see how that goes.
             </div>
         </Link>
       </CardHoverEffect>
